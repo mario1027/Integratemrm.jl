@@ -4,7 +4,6 @@ function gausslegendre(f::Function,n::Int64,a,b)
 	m  = i = j = t = t1 = pp = p1 = p2 = p3 = 0
 	eps = 3E-14   # ajuste apropiado
 	m= floor(Int,((n + 1)/2))
-	quadra=0
 	for i in 1:m
 		t = cos(pi*(Float64(i) - 0.25)/(Float64(n) + 0.5) )
 		t1=1
