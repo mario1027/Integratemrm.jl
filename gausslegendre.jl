@@ -1,4 +1,4 @@
-function gausslegendre(f::Function,n,a,b)
+function gausslegendre(f::Function,n::Int64,a,b)
 	w = zeros(n)
 	x = zeros(n)
 	m  = i = j = t = t1 = pp = p1 = p2 = p3 = 0
@@ -24,9 +24,10 @@ function gausslegendre(f::Function,n,a,b)
 		x[n - i+1] = t 
         w[i] = 2.0/( (1.0 - t*t)*pp*pp) 
         w[n - i+1] = w[i]
-		for i in 1:n
-			xi = x[i]
-		end
+	end
+	for i in 1:n
+		x[i] = x[i]*(b - a)/2. + (b + a)/2. 
+        w[i] = w[i]*(b - a)/2. 
 	end
 	return sum(f(x[i])*w[i] for i in 1:n)
 end
